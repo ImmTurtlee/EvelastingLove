@@ -35,12 +35,11 @@
 			thông báo hình thức vận chuyển và phí vận chuyển.</p>
 			<strong>1.Tài khoản ngân hàng Vietcombank: </strong>
 			<p style ="margin-left: 20px;">Tên: XXXXXXXXX<br>
-			Ngân hàng: Vietcombank chi nhánh XXX<br>
-			Số tài khoản: XXXXXXXX</p>
+			Ngân hàng: TPBank<br>
+			Số tài khoản: 03883643401</p>
 			<strong>2.Ví điện tử MOMO: </strong>
-			<p style ="margin-left: 20px;">Tên: XXXXXXXXX<br>
-			Số điện thoại: 0904974XXX</p>
-			Số điện thoại: 0904974XXX</p>
+			<p style ="margin-left: 20px;">Tên: VU TRAN TUAN SON<br>
+			Số điện thoại: 0889499555</p>
 			<i>Sau khi thanh toán, nếu gặp bất kì sự cố nào vui lòng liên hệ tới số Hotline 19001234</i><br><br>
       	</div>
       </div>
