@@ -11,12 +11,17 @@
               <div class="card-body">
                 <div class="card-title">Thêm sản phẩm</div>
                 <hr>
+                <c:if test="${error != null}">
+                    <div class="alert alert-danger" role="alert">
+                        ${error}
+                    </div>
+                </c:if>
                 <form method="post" action="${pageContext.request.contextPath}/admin/product/add"enctype="multipart/form-data">
                 
                
                   <div class="form-group">
                     <label for="input-1">Tên sản phẩm</label>
-                    <input type="text" class="form-control" id="input-1" placeholder="Tên sản phẩm" name="product-name">
+                    <input type="text" class="form-control" id="input-1" placeholder="Tên sản phẩm" name="product-name" value="${product_name}">
                   </div>
                   
         
@@ -25,7 +30,7 @@
 	                  <div>
 	                    <select class="form-control valid" id="input-6" name="product-cate" aria-invalid="false">
 	                    <c:forEach items="${catelist}" var="cate">
-	                        <option value="${cate.id }">${cate.name }</option>
+	                        <option value="${cate.id}" ${product_cate == cate.id ? 'selected' : ''}>${cate.name}</option>
 	                    </c:forEach>
 	                    </select>
 	                  </div>
@@ -36,21 +41,21 @@
                   </div>
 	                <div class="form-group">
                     <label for="input-1">Giá</label>
-                    <input type="text" class="form-control" id="input-1" placeholder="Giá" name="product-price">
+                    <input type="text" class="form-control" id="input-1" placeholder="Giá" name="product-price" value="${product_price}">
                   </div>
                     <div class="form-group">
 	                  <label for="input-2">Trạng thái</label>
 	                  <div>
 	                    <select class="form-control valid" id="input-6" name="product-status" required aria-invalid="false">
-	                        <option value="1">Còn hàng</option>
-	                        <option value="0">Hết hàng</option>
+	                        <option value="1" ${product_status == '1' ? 'selected' : ''}>Còn hàng</option>
+	                        <option value="0" ${product_status == '0' ? 'selected' : ''}>Hết hàng</option>
 	                    </select>
 	                  </div>
 	                </div>
 	                 <div class="form-group">
 		                <label for="input-2">Giảm giá</label>
 		                <div class="input-group">
-		                <input type="text" class="form-control" placeholder="Giảm ... %" name="product-discount">
+		                <input type="text" class="form-control" placeholder="Giảm ... %" name="product-discount" value="${product_discount}">
 		                <div class="input-group-append">
 		                <button class="btn btn-light" type="button">%</button>
 		                </div>
@@ -59,14 +64,14 @@
                  <div class="form-group">
                   <label for="input-2" class="col-form-label">Mô tả</label>
                   <div>
-                    <textarea class="form-control" rows="4" id="input-17" name="product-desc"></textarea>
+                    <textarea class="form-control" rows="4" id="input-17" name="product-desc">${product_desc}</textarea>
                   </div>
                 </div>
                 
                 <div class="form-group">
                   <label for="input-2" class="col-form-label">Nội dung</label>
                   <div>
-                    <textarea class="form-control" rows="4" id="input-17" name="product-content"></textarea>
+                    <textarea class="form-control" rows="4" id="input-17" name="product-content">${product_content}</textarea>
                   </div>
                 </div>
                 

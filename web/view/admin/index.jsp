@@ -75,24 +75,16 @@
                 <table class="table align-items-center">
                   <tbody>
                     <tr>
-                      <td><i class="fa fa-circle text-white mr-2"></i>Rau sạch</td>
-                      <td>58.000 VNĐ</td>
-                      <td>+55%</td>
+                      <td><i class="fa fa-circle mr-2" style="color:#FF6384"></i>Bạch Dương</td>
+                      <td>+40%</td>
                     </tr>
                     <tr>
-                      <td><i class="fa fa-circle text-light-1 mr-2"></i>Củ quả</td>
-                      <td>110.000 VNĐ</td>
+                      <td><i class="fa fa-circle mr-2" style="color:#9966FF"></i>Sư Tử</td>
+                      <td>+35%</td>
+                    </tr>
+                    <tr>
+                      <td><i class="fa fa-circle mr-2" style="color:#4BC0C0"></i>Song Ngư</td>
                       <td>+25%</td>
-                    </tr>
-                    <tr>
-                      <td><i class="fa fa-circle text-light-2 mr-2"></i>Hạt</td>
-                      <td>215.500 VNĐ</td>
-                      <td>+15%</td>
-                    </tr>
-                    <tr>
-                      <td><i class="fa fa-circle text-light-3 mr-2"></i>Mật ong</td>
-                      <td>310.000 VNĐ</td>
-                      <td>+5%</td>
                     </tr>
                   </tbody>
                 </table>

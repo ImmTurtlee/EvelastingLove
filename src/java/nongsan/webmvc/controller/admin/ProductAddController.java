@@ -52,17 +52,40 @@ public class ProductAddController extends HttpServlet {
 			String product_desc = req.getParameter("product-desc");
 			String product_content = req.getParameter("product-content");
 			String product_discount = req.getParameter("product-discount");
+			
+			// Kiểm tra xem có file ảnh được upload không
 			Part filePart = req.getPart("product-image");
-                        String fileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString();
-
-                        // Đường dẫn lưu file trên server (ví dụ: /view/client/assets/images/products/img-test/)
-                        String uploadPath = req.getServletContext().getRealPath("/view/client/assets/images/products/img-test/");
-                        File uploadDir = new File(uploadPath);
-                        if (!uploadDir.exists()) uploadDir.mkdirs();
-
-                        // Lưu file
-                        filePart.write(uploadPath + File.separator + fileName);
-                        
+			String fileName = "";
+			
+			if (filePart != null && filePart.getSize() > 0) {
+				fileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString();
+				// Đường dẫn lưu file trên server
+				String uploadPath = req.getServletContext().getRealPath("/view/client/assets/images/products/img-test/");
+				File uploadDir = new File(uploadPath);
+				if (!uploadDir.exists()) uploadDir.mkdirs();
+				// Lưu file
+				filePart.write(uploadPath + File.separator + fileName);
+			} else {
+				// Nếu không có ảnh, hiển thị thông báo và giữ lại các giá trị đã nhập
+				req.setAttribute("error", "Vui lòng chọn ảnh cho sản phẩm!");
+				CategoryService cateService = new CategoryServicesImpl();
+				List<Catalog> cateList = cateService.getAll();
+				req.setAttribute("catelist", cateList);
+				
+				// Giữ lại các giá trị đã nhập
+				req.setAttribute("product_cate", product_cate);
+				req.setAttribute("product_name", product_name);
+				req.setAttribute("product_price", product_price);
+				req.setAttribute("product_status", product_status);
+				req.setAttribute("product_desc", product_desc);
+				req.setAttribute("product_content", product_content);
+				req.setAttribute("product_discount", product_discount);
+				
+				RequestDispatcher dispatcher = req.getRequestDispatcher("/view/admin/addproduct.jsp");
+				dispatcher.forward(req, resp);
+				return;
+			}
+			
 			String product_day = req.getParameter("product-day");
 
 			Product product = new Product();

@@ -38,6 +38,11 @@
            <div class="cart-view-table">
              <form action="${pageContext.request.contextPath}/view/client/cart-update" method="post">
                <div class="table-responsive">
+                  <c:if test="${error != null}">
+                    <div class="alert alert-danger" role="alert">
+                        ${error}
+                    </div>
+                  </c:if>
                   <table class="table">
                     <thead>
                       <tr>

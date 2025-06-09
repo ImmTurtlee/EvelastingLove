@@ -30,6 +30,15 @@ public class UpdateCartController extends HttpServlet {
 	public void doPost(HttpServletRequest req,HttpServletResponse resp) throws ServletException, IOException{
 		HttpSession session = req.getSession();
 		Order order = (Order) session.getAttribute("order");
+		
+		// Kiểm tra nếu giỏ hàng trống
+		if (order == null) {
+			req.setAttribute("error", "Giỏ hàng của bạn đang trống!");
+			RequestDispatcher dispatcher = req.getRequestDispatcher("/view/client/cart.jsp");
+			dispatcher.forward(req, resp);
+			return;
+		}
+		
 		List<Item> listItems = order.getItems();
 		order.setSumPrice(0);
 		for(Item item: listItems)
